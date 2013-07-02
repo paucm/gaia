@@ -621,7 +621,10 @@ BaseSearchSpace<SearchPointType, DataSetType>* BaseSearchSpacePool<SearchPointTy
 
     switch (labelPred->_type) {
     case EQ: {
-      if (!index.ranges.contains(value->value())) return result;
+      if (!index.ranges.contains(value->value())) {
+        result->resize(0);
+        return result;
+      }
       QPair<int, int> rng = index.ranges.value(value->value());
       copySearchPoints(result, index.sspace, rng.first, rng.second);
       return result;
