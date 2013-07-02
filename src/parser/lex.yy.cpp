@@ -1,5 +1,5 @@
 
-//#line 3 "lex.yy.c"
+#line 3 "lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -534,8 +534,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-//#line 1 "lexer.l"
-//#line 2 "lexer.l"
+#line 1 "lexer.l"
+#line 2 "lexer.l"
 #include "grammar.h"
 #include "token.h"
 #include "gaiaexception.h"
@@ -950,15 +950,14 @@ case 22:
 YY_RULE_SETUP
 #line 76 "lexer.l"
 {
-  yylval.value = atof(yytext);
-  /*std::cout << "SCANNER: value - " << std::flush;*/
+  yylval.value = QString(yytext).toDouble();
   return VALUE_CONSTANT;
 }
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 82 "lexer.l"
+#line 81 "lexer.l"
 {
   // remove surrounding double-quotes
   yylval.name = new QString(yytext+1);
@@ -968,7 +967,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 89 "lexer.l"
+#line 88 "lexer.l"
 {
   yylval.name = new QString(yytext+6);
   return VALUE_VARIABLE;
@@ -976,7 +975,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 94 "lexer.l"
+#line 93 "lexer.l"
 {
   yylval.name = new QString(yytext+6);
   return LABEL_VARIABLE;
@@ -984,24 +983,24 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 99 "lexer.l"
+#line 98 "lexer.l"
 {
   return POINT_ID;
 }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 104 "lexer.l"
+#line 103 "lexer.l"
 {
   throw gaia2::GaiaException("Scanner error at character '", yytext, "'");
 }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 107 "lexer.l"
+#line 106 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 1005 "lex.yy.c"
+#line 1004 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1999,7 +1998,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 107 "lexer.l"
+#line 106 "lexer.l"
 
 
 

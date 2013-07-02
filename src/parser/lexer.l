@@ -74,8 +74,7 @@ ID            [[:alpha:]][[:alnum:]_"-"\.]*
 }
 
 {REAL}        {
-  yylval.value = atof(yytext);
-  /*std::cout << "SCANNER: value - " << std::flush;*/
+  yylval.value = QString(yytext).toDouble();
   return VALUE_CONSTANT;
 }
 
